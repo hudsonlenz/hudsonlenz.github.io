@@ -492,11 +492,16 @@
                 <span class="tag">ETL</span>
               </div>
 
-              <a href="https://github.com/hudsonlenz/projeto-vendas" target="_blank" rel="noopener noreferrer"
-                 class="project-cta" aria-label="Ver projeto completo no GitHub">
-                Ver Projeto
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
+              <button
+                class="project-cta"
+                aria-label="Ampliar imagem do projeto"
+                data-lightbox
+                data-img="img/Dashboard 1.png"
+                data-title="Dashboard Executivo de Vendas"
+                data-github="https://github.com/hudsonlenz/projeto-vendas">
+                Expandir Detalhes
+                <i class="fas fa-expand" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </article>
@@ -533,11 +538,16 @@
                 <span class="tag">GCP</span>
               </div>
 
-              <a href="https://github.com/hudsonlenz/pipeline-bigquery" target="_blank" rel="noopener noreferrer"
-                 class="project-cta" aria-label="Ver projeto completo no GitHub">
-                Ver Projeto
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
+              <button
+                class="project-cta"
+                aria-label="Ampliar imagem do projeto"
+                data-lightbox
+                data-img="img/20260327_151705.jpg"
+                data-title="Pipeline ELT com BigQuery &amp; dbt"
+                data-github="https://github.com/hudsonlenz/pipeline-bigquery">
+                Expandir Detalhes
+                <i class="fas fa-expand" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </article>
@@ -574,11 +584,16 @@
                 <span class="tag">SHAP</span>
               </div>
 
-              <a href="https://github.com/hudsonlenz/analise-churn" target="_blank" rel="noopener noreferrer"
-                 class="project-cta" aria-label="Ver projeto completo no GitHub">
-                Ver Projeto
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
+              <button
+                class="project-cta"
+                aria-label="Ampliar imagem do projeto"
+                data-lightbox
+                data-img="img/20260327_151705.jpg"
+                data-title="Análise Preditiva de Churn"
+                data-github="https://github.com/hudsonlenz/analise-churn">
+                Expandir Detalhes
+                <i class="fas fa-expand" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </article>
@@ -615,11 +630,16 @@
                 <span class="tag">Finance</span>
               </div>
 
-              <a href="https://github.com/hudsonlenz/bi-financeiro" target="_blank" rel="noopener noreferrer"
-                 class="project-cta" aria-label="Ver projeto completo no GitHub">
-                Ver Projeto
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
+              <button
+                class="project-cta"
+                aria-label="Ampliar imagem do projeto"
+                data-lightbox
+                data-img="img/20260327_151705.jpg"
+                data-title="BI Financeiro Integrado"
+                data-github="https://github.com/hudsonlenz/bi-financeiro">
+                Expandir Detalhes
+                <i class="fas fa-expand" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </article>
@@ -656,11 +676,16 @@
                 <span class="tag">Medallion</span>
               </div>
 
-              <a href="https://github.com/hudsonlenz/data-lake-gcp" target="_blank" rel="noopener noreferrer"
-                 class="project-cta" aria-label="Ver projeto completo no GitHub">
-                Ver Projeto
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
+              <button
+                class="project-cta"
+                aria-label="Ampliar imagem do projeto"
+                data-lightbox
+                data-img="img/20260327_151705.jpg"
+                data-title="Data Lake Medallion no GCP"
+                data-github="https://github.com/hudsonlenz/data-lake-gcp">
+                Expandir Detalhes
+                <i class="fas fa-expand" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </article>
@@ -697,11 +722,16 @@
                 <span class="tag">Attribution</span>
               </div>
 
-              <a href="https://github.com/hudsonlenz/marketing-analytics" target="_blank" rel="noopener noreferrer"
-                 class="project-cta" aria-label="Ver projeto completo no GitHub">
-                Ver Projeto
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
+              <button
+                class="project-cta"
+                aria-label="Ampliar imagem do projeto"
+                data-lightbox
+                data-img="img/20260327_151705.jpg"
+                data-title="Marketing Analytics &amp; Attribution"
+                data-github="https://github.com/hudsonlenz/marketing-analytics">
+                Expandir Detalhes
+                <i class="fas fa-expand" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </article>
@@ -878,6 +908,28 @@
   <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo da página" title="Voltar ao topo">
     <i class="fas fa-chevron-up" aria-hidden="true"></i>
   </button>
+
+  <!-- ============================================================
+       LIGHTBOX / GALERIA
+  ============================================================ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização do projeto" hidden>
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+      <div class="lightbox-image-wrap">
+        <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+      </div>
+      <div class="lightbox-footer">
+        <p class="lightbox-title" id="lightbox-title"></p>
+        <a class="lightbox-github-link" id="lightbox-github-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver no GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i>
+          Ver no GitHub
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================================================
        SCRIPT PRINCIPAL
