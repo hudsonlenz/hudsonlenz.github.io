@@ -1,6 +1,6 @@
 /**
  * ================================================================
- * PORTFÓLIO — ANA LIMA | Data Analyst & BI Developer
+ * PORTFÓLIO — HUDSON LENZ RAUSCH | Data Analyst & BI Developer
  * script.js — JavaScript principal
  *
  * Índice:
@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initFooterYear();
   initActiveNav();
+  initLanguage();
 });
 
 /* ================================================================
@@ -622,4 +623,46 @@ function throttle(fn, limit = 100) {
       setTimeout(() => { inThrottle = false; }, limit);
     }
   };
+}
+function initLanguage() {
+  const toggle = document.getElementById('langToggle');
+  if (!toggle) return;
+
+  let currentLang = localStorage.getItem('lang') || 'pt';
+
+  const translations = {
+    en: {
+      heroTitle: "Hello, I am",
+      heroDesc: "I transform raw data into strategic insights. Specialist in SQL, BigQuery, Tableau and Power BI.",
+      aboutLead: "I am a data professional focused on BI and data engineering, turning data into strategic insights.",
+      aboutText1: "I have strong experience in data modeling, query optimization in BigQuery, and building scalable pipelines.",
+      aboutText2: "Today I focus on Business Intelligence, building dashboards and analytics that drive decision-making.",
+      contactText: "I am open to new projects, opportunities and challenges in the data field. Let's talk!"
+    },
+    pt: {
+      heroTitle: "Olá, eu sou",
+      heroDesc: "Transformo dados brutos em narrativas estratégicas. Especialista em SQL, BigQuery, Tableau e Power BI.",
+      aboutLead: "Sou um profissional de dados com forte atuação em BI e engenharia de dados.",
+      aboutText1: "Tenho experiência sólida em modelagem de dados, otimização de queries em BigQuery e pipelines.",
+      aboutText2: "Hoje atuo com foco em Business Intelligence, construindo dashboards estratégicos.",
+      contactText: "Estou aberto a novos projetos, oportunidades e desafios na área de dados. Vamos conversar!"
+    }
+  };
+
+  function applyLanguage(lang) {
+    Object.keys(translations[lang]).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = translations[lang][id];
+    });
+
+    toggle.textContent = lang === 'pt' ? 'EN' : 'PT';
+    localStorage.setItem('lang', lang);
+  }
+
+  applyLanguage(currentLang);
+
+  toggle.addEventListener('click', () => {
+    currentLang = currentLang === 'pt' ? 'en' : 'pt';
+    applyLanguage(currentLang);
+  });
 }
