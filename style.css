@@ -1,5 +1,5 @@
 /* ================================================================
-   PORTFÓLIO — ANA LIMA | Data Analyst & BI Developer
+   PORTFÓLIO — Hudson L. Rausch | Data Analyst & BI Developer
    style.css — Estilos principais
 
    Índice:
@@ -1722,4 +1722,138 @@ body.cursor-clicking .cursor-dot {
     transition-duration: 0.01ms !important;
   }
   html { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   LIGHTBOX / GALERIA
+============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+.lightbox[hidden] { display: none; }
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+
+.lightbox-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  animation: lightbox-in 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes lightbox-in {
+  from { opacity: 0; transform: scale(0.88) translateY(24px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-size: var(--fs-md);
+  cursor: pointer;
+  transition: color var(--transition-base), border-color var(--transition-base), background-color var(--transition-base);
+}
+.lightbox-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--accent-dim);
+}
+
+.lightbox-image-wrap {
+  width: 100%;
+  max-height: 520px;
+  overflow: hidden;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.lightbox-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.lightbox-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--accent);
+  transition: opacity var(--transition-base);
+  white-space: nowrap;
+}
+.lightbox-github-link:hover { opacity: 0.75; }
+
+/* Botão de ampliar */
+.project-cta[data-lightbox] { cursor: pointer; background: none; border: none; text-align: left; font-family: inherit; }
+.project-cta[data-lightbox] i { transition: transform var(--transition-spring); }
+.project-cta[data-lightbox]:hover i { transform: scale(1.2); }
+
+@media (max-width: 600px) {
+  .lightbox { padding: var(--space-3); }
+  .lightbox-image-wrap { max-height: 280px; }
+  .lightbox-img { max-height: 280px; }
+}
+
+/* ── Card inteiro como gatilho do lightbox ── */
+.project-card[data-lightbox] {
+  cursor: pointer;
+}
+/* Impede que o link do GitHub propague o clique para o card */
+.project-card[data-lightbox] .project-github-link {
+  position: relative;
+  z-index: 2;
 }
