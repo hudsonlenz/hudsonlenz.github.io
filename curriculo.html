@@ -131,6 +131,33 @@
     }
     .btn-download i { font-size: 0.75rem; }
 
+    .btn-download-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-download--ghost {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .btn-download--ghost:hover {
+      background: var(--accent-dim);
+      color: var(--accent-light);
+      border-color: var(--accent-light);
+      box-shadow: none;
+      transform: translateY(-2px);
+    }
+
+    .btn-lang {
+      font-size: 0.65rem;
+      opacity: 0.75;
+      letter-spacing: 0.05em;
+      margin-left: 0.2rem;
+    }
+
     /* ── Layout ── */
     .page {
       position: relative;
@@ -486,10 +513,16 @@
       Voltar ao portfólio
     </a>
     <span class="topbar-name">Hudson Lenz Rausch</span>
-    <a href="assets/curriculo-hudson-rausch.pdf" download="Curriculo_Hudson_Rausch.pdf" class="btn-download">
-      <i class="fas fa-download"></i>
-      Baixar PDF
-    </a>
+    <div class="btn-download-group">
+      <a href="assets/curriculo-hudson-rausch.pdf" download="Curriculo_Hudson_Rausch.pdf" class="btn-download">
+        <i class="fas fa-download"></i>
+        Português <span class="btn-lang">PT</span>
+      </a>
+      <a href="assets/resume-hudson-rausch-en.pdf" download="Resume_Hudson_Rausch_EN.pdf" class="btn-download btn-download--ghost">
+        <i class="fas fa-download"></i>
+        English <span class="btn-lang">EN</span>
+      </a>
+    </div>
   </header>
 
   <!-- Conteúdo -->
@@ -646,10 +679,16 @@
         <p>Quer o arquivo completo?</p>
         <p>Faça o download do PDF com todas as informações formatadas.</p>
       </div>
-      <a href="assets/curriculo-hudson-rausch.pdf" download="Curriculo_Hudson_Rausch.pdf" class="btn-download">
-        <i class="fas fa-download"></i>
-        Baixar PDF
-      </a>
+      <div class="btn-download-group">
+        <a href="assets/curriculo-hudson-rausch.pdf" download="Curriculo_Hudson_Rausch.pdf" class="btn-download">
+          <i class="fas fa-download"></i>
+          Português <span class="btn-lang">PT</span>
+        </a>
+        <a href="assets/resume-hudson-rausch-en.pdf" download="Resume_Hudson_Rausch_EN.pdf" class="btn-download btn-download--ghost">
+          <i class="fas fa-download"></i>
+          English <span class="btn-lang">EN</span>
+        </a>
+      </div>
     </div>
 
   </main>
