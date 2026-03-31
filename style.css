@@ -1,5 +1,5 @@
 /* ================================================================
-   PORTFÓLIO — Hudson L. Rausch | Data Analyst & BI Developer
+   PORTFÓLIO — ANA LIMA | Data Analyst & BI Developer
    style.css — Estilos principais
 
    Índice:
@@ -106,10 +106,10 @@
 
 /* ── Tema Claro (light mode) ── */
 [data-theme="light"] {
-  --bg-primary:    #f8f6f2;
-  --bg-secondary:  #f0ede6;
-  --bg-card:       #ffffff;
-  --bg-card-hover: #faf8f4;
+  --bg-primary:    #edeae3;
+  --bg-secondary:  #e4e0d8;
+  --bg-card:       #f8f6f2;
+  --bg-card-hover: #faf9f5;
   --accent:        #b8891e;
   --accent-light:  #d4a843;
   --accent-dim:    rgba(184, 137, 30, 0.10);
@@ -117,8 +117,8 @@
   --text-primary:  #1a1916;
   --text-secondary:#5a5650;
   --text-muted:    #9a9690;
-  --border:        rgba(0,0,0,0.08);
-  --border-accent: rgba(184, 137, 30, 0.3);
+  --border:        rgba(0,0,0,0.13);
+  --border-accent: rgba(184, 137, 30, 0.35);
   --shadow-sm:  0 2px 8px rgba(0,0,0,0.08);
   --shadow-md:  0 4px 24px rgba(0,0,0,0.1);
   --shadow-lg:  0 8px 48px rgba(0,0,0,0.12);
@@ -473,7 +473,32 @@ body.cursor-clicking .cursor-dot {
   box-shadow: var(--shadow-md);
 }
 [data-theme="light"] .navbar.scrolled {
-  background-color: rgba(248, 246, 242, 0.88);
+  background-color: rgba(237, 234, 227, 0.92);
+}
+
+/* ── Profundidade de cards no tema claro ── */
+[data-theme="light"] .project-card,
+[data-theme="light"] .highlight-card,
+[data-theme="light"] .skill-icon-card {
+  border: 1px solid rgba(0,0,0,0.13);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+[data-theme="light"] .skill-bar-track {
+  background-color: rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.10);
+}
+
+[data-theme="light"] .project-card:hover,
+[data-theme="light"] .highlight-card:hover,
+[data-theme="light"] .skill-icon-card:hover {
+  border-color: rgba(184,137,30,0.40);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+}
+
+[data-theme="light"] .tag {
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.05);
 }
 
 .nav-container {
@@ -801,6 +826,34 @@ body.cursor-clicking .cursor-dot {
 .hero-description strong {
   color: var(--text-primary);
   font-weight: 500;
+}
+
+/* Citação hero */
+.hero-quote {
+  position: relative;
+  max-width: 52ch;
+  margin: 0 0 var(--space-6) 0;
+  padding: 0 0 0 var(--space-5);
+  border-left: 2px solid var(--accent);
+  background: none;
+  border-radius: 0;
+}
+.hero-quote-mark {
+  display: none;
+}
+.hero-quote-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-1) 0;
+}
+.hero-quote-author {
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.06em;
 }
 
 /* CTAs */
