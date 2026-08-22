@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFooterYear();
   initActiveNav();
   initLanguage();
+  initProjectsCarousel();
 });
 
 /* ================================================================
@@ -678,26 +679,52 @@ function initLanguage() {
   const detailsEl  = document.getElementById('lightbox-details');
   const backdrop   = lightbox.querySelector('.lightbox-backdrop');
   const closeBtn   = document.getElementById('lightbox-close');
+  const prevBtn    = document.getElementById('lightbox-prev');
+  const nextBtn    = document.getElementById('lightbox-next');
 
-  function openLightbox(btn) {
-    img.src          = btn.dataset.img   || '';
-    img.alt          = btn.dataset.title || 'Imagem do projeto';
-    titleEl.textContent = btn.dataset.title || '';
-    githubLink.href  = btn.dataset.github || '#';
+  let currentIndex = -1;
 
-    // Detalhes extras do projeto (fontes SAP, regras de negócio, etc.)
+  function getCards() {
+    return Array.from(document.querySelectorAll('.project-card[data-lightbox]'));
+  }
+
+  function openLightbox(btn, { scrollIntoView = false } = {}) {
+    const cards = getCards();
+    currentIndex = cards.indexOf(btn);
+
+    // Título e imagem: lê o texto já renderizado no card (respeita o idioma
+    // aplicado pelo Google Translate na página) em vez de um atributo estático.
+    const titleSrc  = btn.querySelector('.project-title');
+    const titleText = titleSrc ? titleSrc.textContent.trim() : (btn.dataset.title || '');
+
+    img.src              = btn.dataset.img || '';
+    img.alt              = titleText || 'Imagem do projeto';
+    titleEl.textContent  = titleText;
+    githubLink.href      = btn.dataset.github || '#';
+
+    // Detalhes extras do projeto (desafios, fontes SAP, regras de negócio...).
+    // Clonados de um <div hidden> real (não de um <template>) para que o
+    // Google Translate — que roda no carregamento da página — já tenha
+    // traduzido esse texto antes de ele ser copiado para o pop-up.
     detailsEl.innerHTML = '';
-    const tmpl = btn.querySelector('template.project-details');
-    if (tmpl) {
-      detailsEl.appendChild(tmpl.content.cloneNode(true));
+    const src = btn.querySelector('.project-details');
+    if (src) {
+      detailsEl.appendChild(src.cloneNode(true)).hidden = false;
       detailsEl.hidden = false;
     } else {
       detailsEl.hidden = true;
     }
 
-    lightbox.hidden  = false;
+    lightbox.hidden = false;
     document.body.style.overflow = 'hidden';
     closeBtn.focus();
+
+    if (prevBtn) prevBtn.style.visibility = cards.length > 1 ? '' : 'hidden';
+    if (nextBtn) nextBtn.style.visibility = cards.length > 1 ? '' : 'hidden';
+
+    if (scrollIntoView) {
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
   }
 
   function closeLightbox() {
@@ -705,19 +732,62 @@ function initLanguage() {
     document.body.style.overflow = '';
     img.src = '';
     detailsEl.innerHTML = '';
+    currentIndex = -1;
+  }
+
+  function goTo(offset) {
+    const cards = getCards();
+    if (!cards.length || currentIndex === -1) return;
+    const nextIndex = (currentIndex + offset + cards.length) % cards.length;
+    openLightbox(cards[nextIndex], { scrollIntoView: true });
   }
 
   // Card inteiro como gatilho — ignora cliques no link do GitHub
   document.addEventListener('click', (e) => {
     if (e.target.closest('.project-github-link')) return;
-    const card = e.target.closest('[data-lightbox]');
+    const card = e.target.closest('.project-card[data-lightbox]');
     if (card) openLightbox(card);
   });
+
+  if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); goTo(-1); });
+  if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); goTo(1); });
 
   backdrop.addEventListener('click', closeLightbox);
   closeBtn.addEventListener('click', closeLightbox);
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape')   closeLightbox();
+    if (e.key === 'ArrowLeft')  goTo(-1);
+    if (e.key === 'ArrowRight') goTo(1);
   });
 })();
+
+/* ============================================================
+   CARROSSEL DE PROJETOS — setas laterais
+============================================================ */
+function initProjectsCarousel() {
+  const track = document.getElementById('projectsTrack');
+  const prev  = document.getElementById('projectsPrev');
+  const next  = document.getElementById('projectsNext');
+  if (!track || !prev || !next) return;
+
+  function step(dir) {
+    const card = track.querySelector('.project-card');
+    const gap  = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 24;
+    const amount = (card ? card.getBoundingClientRect().width : 340) + gap;
+    track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+  }
+
+  function updateArrows() {
+    const maxScroll = track.scrollWidth - track.clientWidth - 2;
+    prev.disabled = track.scrollLeft <= 0;
+    next.disabled = track.scrollLeft >= maxScroll;
+  }
+
+  prev.addEventListener('click', () => step(-1));
+  next.addEventListener('click', () => step(1));
+  track.addEventListener('scroll', throttle(updateArrows, 150));
+  window.addEventListener('resize', throttle(updateArrows, 200));
+  updateArrows();
+}
