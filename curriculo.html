@@ -1,879 +1,745 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- ============================================================
-       META TAGS — SEO e Configurações Básicas
-  ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfólio de Hudson Lenz Rausch — Data Analyst & Business Intelligence Specialist com 6+ anos de experiência em SQL, BigQuery, GCP, Collibra, Power BI e Tableau. Open to international opportunities." />
-  <meta name="keywords" content="data analyst, data governance, BI specialist, SQL, BigQuery, GCP, Collibra, Tableau, Power BI, SAP Data Services, Airflow, GDPR, portfólio, international" />
-  <meta name="author" content="Hudson Lenz Rausch" />
+  <title>Currículo — Hudson Lenz Rausch</title>
 
-  <!-- Open Graph (compartilhamento em redes sociais) -->
-  <meta property="og:title" content="Hudson Lenz Rausch — Data Analyst & BI Specialist" />
-  <meta property="og:description" content="6+ years turning data into strategic decisions. SQL · BigQuery · GCP · Collibra · Power BI · Tableau. Open to relocation." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hudsonlenz.github.io" />
-
-  <title>Hudson Lenz Rausch — Data Analyst & BI Specialist</title>
-
-  <!-- ============================================================
-       FONTES — Google Fonts
-       DM Serif Display: elegante para títulos
-       DM Sans: clean para corpo de texto
-  ============================================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-
-  <!-- ============================================================
-       FONT AWESOME — Ícones
-  ============================================================ -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- ============================================================
-       CSS PRINCIPAL
-  ============================================================ -->
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --bg:           #0a0a0b;
+      --bg-card:      #111113;
+      --bg-card-2:    #16161a;
+      --accent:       #d4a843;
+      --accent-light: #e8c06a;
+      --accent-dim:   rgba(212,168,67,0.10);
+      --accent-glow:  rgba(212,168,67,0.22);
+      --text:         #f0ede8;
+      --text-2:       #a09e9a;
+      --text-muted:   #5c5a57;
+      --border:       rgba(255,255,255,0.07);
+      --border-a:     rgba(212,168,67,0.28);
+      --font-d:       'DM Serif Display', Georgia, serif;
+      --font-b:       'DM Sans', system-ui, sans-serif;
+      --ease:         cubic-bezier(0.4,0,0.2,1);
+      --spring:       cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Noise overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Glow de fundo ── */
+    .bg-glow {
+      position: fixed;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      top: -200px;
+      right: -200px;
+      opacity: 0.5;
+    }
+
+    /* ── Topbar ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10,10,11,0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-2);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 250ms var(--ease);
+    }
+    .topbar-back:hover { color: var(--accent); }
+    .topbar-back i { font-size: 0.7rem; }
+
+    .topbar-name {
+      font-family: var(--font-d);
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.25rem;
+      border-radius: 9999px;
+      font-family: var(--font-b);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      background: var(--accent);
+      color: #0a0a0b;
+      border: none;
+      cursor: pointer;
+      transition: background 250ms var(--ease), transform 350ms var(--spring), box-shadow 250ms var(--ease);
+    }
+    .btn-download:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+    .btn-download i { font-size: 0.75rem; }
+
+    .btn-download-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-download--ghost {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .btn-download--ghost:hover {
+      background: var(--accent-dim);
+      color: var(--accent-light);
+      border-color: var(--accent-light);
+      box-shadow: none;
+      transform: translateY(-2px);
+    }
+
+    .btn-lang {
+      font-size: 0.65rem;
+      opacity: 0.75;
+      letter-spacing: 0.05em;
+      margin-left: 0.2rem;
+    }
+
+    /* ── Layout ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    /* ── Header do currículo ── */
+    .cv-header {
+      margin-bottom: 3.5rem;
+      animation: fade-up 0.6s var(--ease) both;
+    }
+
+    .cv-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cv-tag::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .cv-name {
+      font-family: var(--font-d);
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .cv-role {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .cv-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+    }
+
+    .cv-contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      color: var(--text-2);
+      transition: color 200ms var(--ease);
+    }
+    .cv-contact-item:hover { color: var(--accent); }
+    .cv-contact-item i {
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent-dim), var(--border), transparent);
+      margin: 2.5rem 0;
+    }
+
+    /* ── Sections ── */
+    .cv-section {
+      margin-bottom: 2.8rem;
+      animation: fade-up 0.6s var(--ease) both;
+    }
+
+    .cv-section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .cv-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .cv-summary {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.85;
+    }
+
+    /* ── Experience ── */
+    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.25rem 2rem;
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 250ms var(--ease), background 250ms var(--ease);
+    }
+    .exp-item:hover {
+      border-color: var(--border-a);
+      background: var(--bg-card-2);
+    }
+
+    .exp-company {
+      font-family: var(--font-d);
+      font-size: 1.05rem;
+      color: var(--text);
+      grid-column: 1;
+    }
+
+    .exp-period {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-align: right;
+      white-space: nowrap;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: start;
+      padding-top: 0.15rem;
+    }
+
+    .exp-role {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      grid-column: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .exp-bullets li {
+      font-size: 0.87rem;
+      color: var(--text-2);
+      line-height: 1.6;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .exp-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
+    /* ── Education ── */
+    .edu-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 250ms var(--ease);
+    }
+    .edu-item:hover { border-color: var(--border-a); }
+
+    .edu-degree {
+      font-family: var(--font-d);
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .edu-school {
+      font-size: 0.8rem;
+      color: var(--text-2);
+    }
+    .edu-year {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Skills grid ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .skill-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.82rem;
+      color: var(--text-2);
+      transition: border-color 250ms var(--ease), color 250ms var(--ease), background 250ms var(--ease);
+    }
+    .skill-pill:hover {
+      border-color: var(--border-a);
+      color: var(--text);
+      background: var(--accent-dim);
+    }
+    .skill-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── Languages ── */
+    .lang-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .lang-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      color: var(--text-2);
+    }
+    .lang-flag { font-size: 1rem; }
+    .lang-level {
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ── Project card ── */
+    .project-card {
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 250ms var(--ease);
+    }
+    .project-card:hover { border-color: var(--border-a); }
+    .project-card-title {
+      font-family: var(--font-d);
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .project-card p {
+      font-size: 0.87rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* ── Animações ── */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .cv-section:nth-child(1) { animation-delay: 0.05s; }
+    .cv-section:nth-child(2) { animation-delay: 0.12s; }
+    .cv-section:nth-child(3) { animation-delay: 0.18s; }
+    .cv-section:nth-child(4) { animation-delay: 0.24s; }
+    .cv-section:nth-child(5) { animation-delay: 0.30s; }
+    .cv-section:nth-child(6) { animation-delay: 0.36s; }
+
+    /* ── Footer CTA ── */
+    .cv-footer-cta {
+      margin-top: 4rem;
+      padding: 2rem;
+      background: var(--accent-dim);
+      border: 1px solid var(--border-a);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cv-footer-cta-text p:first-child {
+      font-family: var(--font-d);
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .cv-footer-cta-text p:last-child {
+      font-size: 0.82rem;
+      color: var(--text-2);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .topbar { padding: 0.75rem 1rem; }
+      .topbar-name { display: none; }
+      .page { padding: 2rem 1rem 4rem; }
+      .cv-name { font-size: 2.4rem; }
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-period { grid-column: 1; grid-row: auto; text-align: left; }
+      .edu-item { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="bg-glow"></div>
 
-  <!-- ============================================================
-       CURSOR PERSONALIZADO
-  ============================================================ -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
+  <!-- Topbar -->
+  <header class="topbar">
+    <a href="index.html" class="topbar-back">
+      <i class="fas fa-arrow-left"></i>
+      Voltar ao portfólio
+    </a>
+    <span class="topbar-name">Hudson Lenz Rausch</span>
+    <div class="btn-download-group">
+      <!-- Google Translate -->
+      <div id="google_translate_element" style="display:none" aria-hidden="true"></div>
+      <button class="btn-download btn-download--ghost translate-btn" id="translateBtn" aria-label="Traduzir página" title="Translate page" style="padding:0.45rem 0.9rem; gap:0.35rem;">
+        <i class="fas fa-globe"></i>
+        <span>Language</span>
+        <i class="fas fa-chevron-down" style="font-size:0.6rem; opacity:0.7; transition:transform 200ms ease;" id="translateCaret"></i>
+      </button>
 
-  <!-- ============================================================
-       LOADER DE ENTRADA
-  ============================================================ -->
-  <div class="page-loader" id="pageLoader" aria-hidden="true">
-    <div class="loader-content">
-      <span class="loader-text">HLR</span>
-      <div class="loader-bar"></div>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       HEADER / NAVBAR
-       - Fixo no topo com blur no scroll
-       - Toggle dark/light mode
-  ============================================================ -->
-  <header class="navbar" id="navbar" role="banner">
-    <div class="nav-container">
-      <!-- Logo / Nome -->
-      <a href="#hero" class="nav-logo" aria-label="Ir para o início">
-        <span class="logo-initials">HLR</span>
-        <span class="logo-name">Hudson L. Rausch</span>
+      <a href="assets/Curriculo-Hudson_Lenz_Rausch.pdf" download="Curriculo-Hudson_Lenz_Rausch.pdf" class="btn-download">
+        <i class="fas fa-download"></i>
+        Português <span class="btn-lang">PT</span>
       </a>
-
-      <!-- Menu de Navegação (Desktop) -->
-      <nav class="nav-menu" role="navigation" aria-label="Menu principal">
-        <ul class="nav-list">
-          <li><a href="#about"    class="nav-link" data-text="Sobre">Sobre</a></li>
-          <li><a href="#skills"   class="nav-link" data-text="Skills">Skills</a></li>
-          <li><a href="#projects" class="nav-link" data-text="Projetos">Projetos</a></li>
-          <li><a href="#contact"  class="nav-link" data-text="Contato">Contato</a></li>
-        </ul>
-      </nav>
-
-      <!-- Controles do Header -->
-      <div class="nav-controls">
-
-        <!-- Google Translate -->
-        <div id="google_translate_element" style="display:none" aria-hidden="true"></div>
-        <button class="btn-language" id="translateBtn" aria-label="Select language">
-          <i class="fas fa-globe" aria-hidden="true"></i>
-          <span>Language</span>
-          <i class="fas fa-chevron-down btn-language-caret" aria-hidden="true"></i>
-        </button>
-
-        <!-- Toggle Dark/Light Mode -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
-          <i class="fas fa-sun"  id="iconSun"  aria-hidden="true"></i>
-          <i class="fas fa-moon" id="iconMoon" aria-hidden="true"></i>
-        </button>
-
-        <!-- Hamburguer Mobile -->
-        <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu" aria-expanded="false">
-          <span class="ham-line"></span>
-          <span class="ham-line"></span>
-          <span class="ham-line"></span>
-        </button>
-      </div>
+      <a href="assets/Curriculum-Hudson_Lenz_Rausch.pdf" download="Curriculum-Hudson_Lenz_Rausch.pdf.pdf" class="btn-download btn-download--ghost">
+        <i class="fas fa-download"></i>
+        English <span class="btn-lang">EN</span>
+      </a>
     </div>
-
-    <!-- Menu Mobile (dropdown) -->
-    <nav class="nav-mobile" id="navMobile" aria-hidden="true" role="navigation" aria-label="Menu mobile">
-      <ul class="nav-mobile-list">
-        <li><a href="#about"    class="nav-mobile-link">Sobre</a></li>
-        <li><a href="#skills"   class="nav-mobile-link">Skills</a></li>
-        <li><a href="#projects" class="nav-mobile-link">Projetos</a></li>
-        <li><a href="#contact"  class="nav-mobile-link">Contato</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- ============================================================
-       INDICADOR DE PROGRESSO DE SCROLL
-  ============================================================ -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-  <!-- ============================================================
-       HERO SECTION
-       - Foto/Avatar, nome, título, descrição e CTAs
-  ============================================================ -->
-  <section class="hero" id="hero" aria-label="Apresentação">
-    <!-- Ruído de fundo decorativo -->
-    <div class="hero-noise" aria-hidden="true"></div>
-
-    <!-- Grade decorativa -->
-    <div class="hero-grid" aria-hidden="true"></div>
-
-    <!-- Elementos flutuantes decorativos -->
-    <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
-
-    <div class="hero-container">
-      <!-- Coluna de texto -->
-      <div class="hero-content">
-        <blockquote class="hero-quote reveal-item">
-          <span class="hero-quote-mark" aria-hidden="true">"</span>
-          <p class="hero-quote-text">Without data, you're just another person with an opinion.</p>
-          <footer class="hero-quote-author">— W. Edwards Deming</footer>
-        </blockquote>
-
-        <h1 class="hero-title reveal-item">
-          Olá, eu sou<br />
-          <em class="hero-name">Hudson L. Rausch</em>
-        </h1>
-
-        <p class="hero-subtitle reveal-item">
-          Data Analyst <span class="subtitle-sep" aria-hidden="true">·</span> BI Specialist <span class="subtitle-sep" aria-hidden="true">·</span> Data Governance
-        </p>
-
-        <p class="hero-description reveal-item">
-          Transformo dados brutos em narrativas estratégicas.<br />
-          Especialista em <strong>SQL</strong>, <strong>BigQuery</strong>, <strong>GCP</strong>, <strong>Collibra</strong>, <strong>Power BI</strong> e <strong>Tableau</strong> — com 6+ anos na Bunge construindo pipelines, dashboards e frameworks de governança que aceleram decisões.
-        </p>
-
-        <!-- Botões de CTA -->
-        <div class="hero-actions reveal-item">
-          <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
-             class="btn btn--primary" aria-label="Perfil no GitHub">
-            <i class="fab fa-github" aria-hidden="true"></i>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/hudson-lrausch/" target="_blank" rel="noopener noreferrer"
-             class="btn btn--ghost" aria-label="Perfil no LinkedIn">
-            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-            LinkedIn
-          </a>
-          <a href="#contact" class="btn btn--ghost" aria-label="Ir para seção de contato">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-            Contato
-          </a>
-        </div>
-
-        <!-- Estatísticas rápidas -->
-        <div class="hero-stats reveal-item">
-          <div class="stat-item">
-            <span class="stat-number" data-count="6">0</span><span class="stat-suffix">+</span>
-            <span class="stat-label">Anos de exp.</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-number" data-count="15">0</span><span class="stat-suffix">+</span>
-            <span class="stat-label">Dashboards</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-number" data-count="3">0</span><span class="stat-suffix"></span>
-            <span class="stat-label">Países</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Coluna do avatar -->
-      <div class="hero-visual reveal-item">
-        <div class="avatar-frame" aria-hidden="true">
-          <div class="avatar-placeholder" aria-label="Foto de perfil de Hudson L. Rausch">
-            <img src="img/20260327_151705.jpg" alt="Hudson L. Rausch">
-              <!-- Corpo -->
-              <circle cx="100" cy="75" r="38" fill="currentColor" opacity="0.9"/>
-              <ellipse cx="100" cy="155" rx="55" ry="38" fill="currentColor" opacity="0.7"/>
-            </svg>
-            <span class="avatar-initials" aria-hidden="true">HLR</span>
-          </div>
-          <!-- Badges flutuantes -->
-          <div class="avatar-badge avatar-badge--tl" aria-hidden="true">
-            <i class="fas fa-database"></i>
-            <span>SQL</span>
-          </div>
-          <div class="avatar-badge avatar-badge--br" aria-hidden="true">
-            <i class="fas fa-chart-bar"></i>
-            <span>BI</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Seta de scroll -->
-    <a href="#about" class="hero-scroll-cta" aria-label="Rolar para a seção Sobre mim">
-      <span class="scroll-cta-text">Role para baixo</span>
-      <span class="scroll-cta-arrow" aria-hidden="true">
-        <i class="fas fa-chevron-down"></i>
-      </span>
-    </a>
-  </section>
-
-  <!-- ============================================================
-       SOBRE MIM
-  ============================================================ -->
-  <section class="about section" id="about" aria-label="Sobre mim">
-    <div class="container">
-      <!-- Cabeçalho da seção -->
-      <div class="section-header reveal-item">
-        <span class="section-tag">01 — Sobre</span>
-        <h2 class="section-title">Quem sou eu</h2>
-      </div>
-
-      <div class="about-grid">
-        <!-- Texto -->
-        <div class="about-text reveal-item">
-          <p class="about-lead">
-            Sou um profissional de dados com mais de 6 anos de experiência na Bunge Service Center Brasil, especializado em governança de dados, BI e engenharia de pipelines — transformando grandes volumes de informação em insights estratégicos.
-          </p>
-          <p>
-            Atuo com <strong>SQL e BigQuery</strong> no Google Cloud Platform para desenvolvimento de queries complexas, processos ETL e pipelines com Apache Airflow e Dataflow. Sou responsável por frameworks de <strong>governança de dados com Collibra</strong>, catalogação, qualidade e conformidade com GDPR/LGPD.
-          </p>
-          <p>
-            Em 2023, participei de um programa de intercâmbio em Gestão e Negócios Internacionais no <strong>ISCTE – University of Lisbon</strong>. Falo inglês fluente e estou aberto a oportunidades internacionais e relocação — especialmente na Europa e América do Norte.
-          </p>
-
-          <!-- Download CV -->
-          <a href="curriculo.html" class="btn btn--primary about-cta" aria-label="Ver currículo">
-            <i class="fas fa-eye" aria-hidden="true"></i>
-            Ver Currículo
-          </a>
-        </div>
-
-        <!-- Cards de destaques -->
-        <div class="about-highlights">
-          <div class="highlight-card reveal-item">
-            <div class="highlight-icon" aria-hidden="true">
-              <i class="fas fa-shield-halved"></i>
-            </div>
-            <h3>Governança de Dados</h3>
-            <p>Frameworks com Collibra, catalogação, qualidade de dados e conformidade com GDPR/LGPD em ambientes corporativos.</p>
-          </div>
-
-          <div class="highlight-card reveal-item">
-            <div class="highlight-icon" aria-hidden="true">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h3>BI & Analytics</h3>
-            <p>Dashboards executivos e KPIs estratégicos no Power BI e Tableau conectados ao BigQuery em tempo real.</p>
-          </div>
-
-          <div class="highlight-card reveal-item">
-            <div class="highlight-icon" aria-hidden="true">
-              <i class="fas fa-cloud"></i>
-            </div>
-            <h3>Cloud & Pipelines</h3>
-            <p>ETL/ELT no Google Cloud Platform com SAP Data Services, Apache Airflow e Dataflow em escala corporativa.</p>
-          </div>
-
-          <div class="highlight-card reveal-item">
-            <div class="highlight-icon" aria-hidden="true">
-              <i class="fas fa-database"></i>
-            </div>
-            <h3>SQL & BigQuery</h3>
-            <p>Queries complexas com window functions, modelagem dimensional e otimização de performance em grandes volumes.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SKILLS / HABILIDADES
-  ============================================================ -->
-  <section class="skills section section--alt" id="skills" aria-label="Habilidades técnicas">
-    <div class="container">
-      <!-- Cabeçalho -->
-      <div class="section-header reveal-item">
-        <span class="section-tag">02 — Skills</span>
-        <h2 class="section-title">Ferramentas & Tecnologias</h2>
-      </div>
-
-      <!-- Grid de ícones de tecnologias -->
-      <div class="skills-icons-grid reveal-item">
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" rx="10" fill="currentColor" opacity="0.1"/>
-              <text x="50%" y="56%" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="700" fill="currentColor" font-family="monospace">SQL</text>
-            </svg>
-          </div>
-          <span class="skill-icon-label">SQL</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" rx="10" fill="currentColor" opacity="0.1"/>
-              <text x="50%" y="56%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="700" fill="currentColor" font-family="monospace">BQ</text>
-            </svg>
-          </div>
-          <span class="skill-icon-label">BigQuery</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <i class="fas fa-chart-bar" style="font-size:1.8rem"></i>
-          </div>
-          <span class="skill-icon-label">Power BI</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <i class="fas fa-chart-area" style="font-size:1.8rem"></i>
-          </div>
-          <span class="skill-icon-label">Tableau</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <i class="fab fa-python" style="font-size:1.8rem"></i>
-          </div>
-          <span class="skill-icon-label">Python</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <i class="fab fa-google" style="font-size:1.8rem"></i>
-          </div>
-          <span class="skill-icon-label">Google Cloud</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" rx="10" fill="currentColor" opacity="0.1"/>
-              <text x="50%" y="56%" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="700" fill="currentColor" font-family="monospace">SAP</text>
-            </svg>
-          </div>
-          <span class="skill-icon-label">SAP MM</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <i class="fas fa-database" style="font-size:1.8rem"></i>
-          </div>
-          <span class="skill-icon-label">SAP Data Services</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <i class="fas fa-shield-halved" style="font-size:1.8rem"></i>
-          </div>
-          <span class="skill-icon-label">Collibra DQ</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <i class="fas fa-book-open" style="font-size:1.8rem"></i>
-          </div>
-          <span class="skill-icon-label">Collibra Catalog</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <i class="fas fa-file-excel" style="font-size:1.8rem"></i>
-          </div>
-          <span class="skill-icon-label">Excel Avançado</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" rx="10" fill="currentColor" opacity="0.1"/>
-              <text x="50%" y="56%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="700" fill="currentColor" font-family="monospace">FLOW</text>
-            </svg>
-          </div>
-          <span class="skill-icon-label">Apache Airflow</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <i class="fas fa-shield-halved" style="font-size:1.8rem"></i>
-          </div>
-          <span class="skill-icon-label">GDPR / LGPD</span>
-        </div>
-
-        <div class="skill-icon-card">
-          <div class="skill-icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="48" height="48" rx="10" fill="currentColor" opacity="0.1"/>
-              <text x="50%" y="56%" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="700" fill="currentColor" font-family="monospace">JIRA</text>
-            </svg>
-          </div>
-          <span class="skill-icon-label">JIRA</span>
-        </div>
-
-      </div>
-
-      <!-- Barras de progresso animadas -->
-      <div class="skills-bars">
-        <h3 class="skills-bars-title reveal-item">Nível de Proficiência</h3>
-
-        <div class="skill-bar-item reveal-item">
-          <div class="skill-bar-header">
-            <span class="skill-bar-name">SQL / BigQuery</span>
-            <span class="skill-bar-pct">95%</span>
-          </div>
-          <div class="skill-bar-track" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="SQL e BigQuery: 95%">
-            <div class="skill-bar-fill" data-width="95"></div>
-          </div>
-        </div>
-
-        <div class="skill-bar-item reveal-item">
-          <div class="skill-bar-header">
-            <span class="skill-bar-name">Power BI</span>
-            <span class="skill-bar-pct">92%</span>
-          </div>
-          <div class="skill-bar-track" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Power BI: 92%">
-            <div class="skill-bar-fill" data-width="92"></div>
-          </div>
-        </div>
-
-        <div class="skill-bar-item reveal-item">
-          <div class="skill-bar-header">
-            <span class="skill-bar-name">SAP MM & SAP Data Services</span>
-            <span class="skill-bar-pct">90%</span>
-          </div>
-          <div class="skill-bar-track" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="SAP: 90%">
-            <div class="skill-bar-fill" data-width="90"></div>
-          </div>
-        </div>
-
-        <div class="skill-bar-item reveal-item">
-          <div class="skill-bar-header">
-            <span class="skill-bar-name">Collibra (Data Quality & Catalog)</span>
-            <span class="skill-bar-pct">85%</span>
-          </div>
-          <div class="skill-bar-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Collibra: 85%">
-            <div class="skill-bar-fill" data-width="85"></div>
-          </div>
-        </div>
-
-        <div class="skill-bar-item reveal-item">
-          <div class="skill-bar-header">
-            <span class="skill-bar-name">Tableau</span>
-            <span class="skill-bar-pct">82%</span>
-          </div>
-          <div class="skill-bar-track" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Tableau: 82%">
-            <div class="skill-bar-fill" data-width="82"></div>
-          </div>
-        </div>
-
-        <div class="skill-bar-item reveal-item">
-          <div class="skill-bar-header">
-            <span class="skill-bar-name">Google Cloud Platform</span>
-            <span class="skill-bar-pct">80%</span>
-          </div>
-          <div class="skill-bar-track" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="GCP: 80%">
-            <div class="skill-bar-fill" data-width="80"></div>
-          </div>
-        </div>
-
-        <div class="skill-bar-item reveal-item">
-          <div class="skill-bar-header">
-            <span class="skill-bar-name">Microsoft Office (Excel Avançado)</span>
-            <span class="skill-bar-pct">88%</span>
-          </div>
-          <div class="skill-bar-track" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Office: 88%">
-            <div class="skill-bar-fill" data-width="88"></div>
-          </div>
-        </div>
-
-        <div class="skill-bar-item reveal-item">
-          <div class="skill-bar-header">
-            <span class="skill-bar-name">Python</span>
-            <span class="skill-bar-pct">72%</span>
-          </div>
-          <div class="skill-bar-track" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Python: 72%">
-            <div class="skill-bar-fill" data-width="72"></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PROJETOS
-  ============================================================ -->
-  <section class="projects section" id="projects" aria-label="Projetos em destaque">
-    <div class="container">
-      <!-- Cabeçalho -->
-      <div class="section-header reveal-item">
-        <span class="section-tag">03 — Projetos</span>
-        <h2 class="section-title">Trabalhos em Destaque</h2>
-      </div>
-
-      <!-- Grid de projetos -->
-      <div class="projects-grid">
-
-        <!-- Projeto 1 -->
-        <article class="project-card reveal-item" data-lightbox data-img="img/flow-fretes.svg" data-title="Monitor de Variação de Preços de Frete" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Monitor de Variação de Preços de Frete">
-          <div class="project-card-inner">
-            <div class="project-preview" aria-hidden="true">
-              <div class="project-preview-icon">
-                <i class="fas fa-truck"></i>
-              </div>
-              <div class="project-preview-bg"></div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-category">SAP Pricing · SAP Data Services · BigQuery · Power BI</span>
-                <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
-                   class="project-github-link" aria-label="Ver código no GitHub">
-                  <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-              </div>
-
-              <h3 class="project-title">Monitor de Variação de Preços de Frete</h3>
-
-              <p class="project-description">
-                Solução de auditoria que reconstrói as condições de preço de frete do SAP (KONH/KONP) no BigQuery via SAP Data Services, calculando a variação percentual entre alterações e enriquecendo rotas e centros com descrições de negócio. Entrega um dashboard em Power BI com rastreabilidade completa de quem alterou cada preço e o impacto na malha de fretes.
-              </p>
-
-              <div class="project-tags" aria-label="Tecnologias usadas">
-                <span class="tag">SAP</span>
-                <span class="tag">SAP Data Services</span>
-                <span class="tag">BigQuery</span>
-                <span class="tag">Power BI</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Projeto 2 -->
-        <article class="project-card reveal-item" data-lightbox data-img="img/flow-materiais.svg" data-title="Master Data Management de Materiais" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Master Data Management de Materiais">
-          <div class="project-card-inner">
-            <div class="project-preview" aria-hidden="true">
-              <div class="project-preview-icon">
-                <i class="fas fa-database"></i>
-              </div>
-              <div class="project-preview-bg"></div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-category">SAP ECC · SAP Data Services · BigQuery · Power BI</span>
-                <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
-                   class="project-github-link" aria-label="Ver código no GitHub">
-                  <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-              </div>
-
-              <h3 class="project-title">Master Data Management de Materiais</h3>
-
-              <p class="project-description">
-                Plataforma de governança que consolida o cadastro mestre de materiais do SAP (MARA, MARC, WBHI) em uma camada MDM no BigQuery, com motor automatizado de bloqueio (por centro, total ou já bloqueado), regra de elegibilidade para Direct PO e classificação por tipo de material. Entregue como consulta guiada e dashboards de evolução da base em Power BI.
-              </p>
-
-              <div class="project-tags" aria-label="Tecnologias usadas">
-                <span class="tag">SAP ECC</span>
-                <span class="tag">BigQuery</span>
-                <span class="tag">Power BI</span>
-                <span class="tag">MDM</span>
-                <span class="tag">Data Quality</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Projeto 3 -->
-        <article class="project-card reveal-item" data-lightbox data-img="img/flow-recebedor.svg" data-title="Recebedor Divergente" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Recebedor Divergente">
-          <div class="project-card-inner">
-            <div class="project-preview" aria-hidden="true">
-              <div class="project-preview-icon">
-                <i class="fas fa-shield-halved"></i>
-              </div>
-              <div class="project-preview-bg"></div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-category">SAP · BigQuery · ServiceNow · LGPD</span>
-                <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
-                   class="project-github-link" aria-label="Ver código no GitHub">
-                  <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-              </div>
-
-              <h3 class="project-title">Recebedor Divergente</h3>
-
-              <p class="project-description">
-                Solução de conformidade que reconcilia o fornecedor do contrato com o favorecido do pagamento no SAP, aplicando regras de coalescência de cadastro e mascaramento de dados sensíveis (LGPD) no BigQuery. Os resultados são publicados em um portal self-service no ServiceNow, permitindo consulta segura por clientes externos.
-              </p>
-
-              <div class="project-tags" aria-label="Tecnologias usadas">
-                <span class="tag">SAP</span>
-                <span class="tag">BigQuery</span>
-                <span class="tag">ServiceNow</span>
-                <span class="tag">LGPD</span>
-                <span class="tag">Data Governance</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Projeto 4 -->
-        <article class="project-card reveal-item" data-lightbox data-img="img/flow-rtr.svg" data-title="RTR — Balancete &amp; Faturamento" data-github="https://github.com/hudsonlenz" aria-label="Projeto: RTR Balancete e Faturamento">
-          <div class="project-card-inner">
-            <div class="project-preview" aria-hidden="true">
-              <div class="project-preview-icon">
-                <i class="fas fa-calculator"></i>
-              </div>
-              <div class="project-preview-bg"></div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-category">SAP FI · BigQuery · Power BI</span>
-                <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
-                   class="project-github-link" aria-label="Ver código no GitHub">
-                  <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-              </div>
-
-              <h3 class="project-title">RTR — Balancete &amp; Faturamento</h3>
-
-              <p class="project-description">
-                Duas frentes de Record to Report que reconstroem, a partir do SAP, o balancete contábil (FAGLFLEXT) e o faturamento fiscal (notas fiscais e impostos), com deduplicação por CDC no BigQuery e validação direta contra o razão contábil. Publicado em Power BI para análise mês a mês por conta, segmento e centro de lucro.
-              </p>
-
-              <div class="project-tags" aria-label="Tecnologias usadas">
-                <span class="tag">SAP FI</span>
-                <span class="tag">BigQuery</span>
-                <span class="tag">Power BI</span>
-                <span class="tag">RTR</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-      </div><!-- /projects-grid -->
-
-      <!-- Link para todos os repositórios -->
-      <div class="projects-footer reveal-item">
-        <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
-           class="btn btn--ghost" aria-label="Ver todos os projetos no GitHub">
-          <i class="fab fa-github" aria-hidden="true"></i>
-          Ver todos no GitHub
+  <!-- Conteúdo -->
+  <main class="page">
+
+    <!-- Header pessoal -->
+    <div class="cv-header">
+      <p class="cv-tag">Currículo</p>
+      <h1 class="cv-name">Hudson Lenz<br>Rausch</h1>
+      <p class="cv-role">Data Analyst & Business Intelligence Specialist</p>
+      <div class="cv-contacts">
+        <span class="cv-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          Blumenau, SC — Open to Relocation
+        </span>
+        <a href="tel:+5547999674451" class="cv-contact-item">
+          <i class="fas fa-phone"></i>
+          +55 (47) 99967-4451
+        </a>
+        <a href="mailto:hudson.lenz@hotmail.com" class="cv-contact-item">
+          <i class="fas fa-envelope"></i>
+          hudson.lenz@hotmail.com
+        </a>
+        <a href="https://linkedin.com/in/hudson-lrausch" target="_blank" rel="noopener" class="cv-contact-item">
+          <i class="fab fa-linkedin"></i>
+          linkedin.com/in/hudson-lrausch
+        </a>
+        <a href="https://hudsonlenz.github.io" target="_blank" rel="noopener" class="cv-contact-item">
+          <i class="fas fa-globe"></i>
+          hudsonlenz.github.io
         </a>
       </div>
     </div>
-  </section>
 
-  <!-- ============================================================
-       CONTATO
-  ============================================================ -->
-  <section class="contact section section--alt" id="contact" aria-label="Entre em contato">
-    <div class="container">
-      <!-- Cabeçalho -->
-      <div class="section-header reveal-item">
-        <span class="section-tag">04 — Contato</span>
-        <h2 class="section-title">Vamos Conversar?</h2>
-      </div>
+    <div class="divider"></div>
 
-      <div class="contact-grid">
-        <!-- Info lateral -->
-        <div class="contact-info reveal-item">
-          <p class="contact-lead">
-            Estou em busca de oportunidades internacionais na área de dados — especialmente na Europa e América do Norte. Falo inglês fluente e estou aberto a relocação. Vamos conversar!
-          </p>
+    <!-- Resumo -->
+    <section class="cv-section">
+      <p class="cv-section-label">Resumo Profissional</p>
+      <p class="cv-summary">
+        Analista de Dados com mais de 6 anos de experiência no Bunge Service Center Brasil, especializado em SQL e BigQuery, Google Cloud Platform (GCP), ferramentas de BI (Power BI, Tableau), processos ETL com SAP Data Services e Apache Airflow, e governança de dados com Collibra. Histórico comprovado em desenvolvimento de KPIs, otimização de processos e conformidade com LGPD/GDPR. Inglês fluente. Aberto a oportunidades internacionais e relocação.
+      </p>
+    </section>
 
-          <!-- Links de contato direto -->
-          <ul class="contact-links" aria-label="Informações de contato">
-            <li class="contact-link-item">
-              <a href="mailto:hudson.lenz@hotmail.com" class="contact-link-row" aria-label="Enviar email para hudson.lenz@hotmail.com">
-                <span class="contact-link-icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
-                <span class="contact-link-text">hudson.lenz@hotmail.com</span>
-              </a>
-            </li>
-            <li class="contact-link-item">
-              <a href="https://www.linkedin.com/in/hudson-lrausch/" target="_blank" rel="noopener noreferrer"
-                 class="contact-link-row" aria-label="Perfil no LinkedIn">
-                <span class="contact-link-icon" aria-hidden="true"><i class="fab fa-linkedin-in"></i></span>
-                <span class="contact-link-text">linkedin.com/in/hudson-lrausch</span>
-              </a>
-            </li>
-            <li class="contact-link-item">
-              <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
-                 class="contact-link-row" aria-label="Perfil no GitHub">
-                <span class="contact-link-icon" aria-hidden="true"><i class="fab fa-github"></i></span>
-                <span class="contact-link-text">github.com/hudsonlenz</span>
-              </a>
-            </li>
+    <!-- Experiência -->
+    <section class="cv-section">
+      <p class="cv-section-label">Experiência Profissional</p>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <p class="exp-company">Bunge Service Center Brasil</p>
+          <p class="exp-period">setembro de 2023 — Presente · Gaspar, SC</p>
+          <p class="exp-role">Data Custodian and Quality Analyst</p>
+          <ul class="exp-bullets">
+            <li>Desenvolvimento e manutenção de frameworks de governança de dados, garantindo consistência entre unidades de negócio</li>
+            <li>Criação e otimização de dashboards e KPIs no Power BI e Tableau para suporte à tomada de decisão estratégica</li>
+            <li>Desenvolvimento de queries complexas em SQL e BigQuery para análise de dados e processos ETL em grandes volumes</li>
+            <li>Implementação de catálogos de dados com Collibra e aplicação de padrões de qualidade nos sistemas corporativos</li>
+            <li>Gestão de pipelines com SAP Data Services, Apache Airflow e Dataflow no Google Cloud Platform</li>
+            <li>Garantia de conformidade com LGPD/GDPR e liderança de iniciativas de proteção de dados</li>
           </ul>
-
-          <!-- Ícones sociais -->
-          <div class="social-icons" aria-label="Redes sociais">
-            <a href="https://github.com/hudsonlenz"    target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-            <a href="https://www.linkedin.com/in/hudson-lrausch/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com/hudsonl_rausch/" class="social-icon" aria-label="Instagram"> <i class="fab fa-instagram"></i></a>
-            <a href="mailto:hudson.lenz@hotmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-          </div>
         </div>
 
-        <!-- Formulário -->
-        <div class="contact-form-wrap reveal-item">
-          <form class="contact-form" id="contactForm" novalidate aria-label="Formulário de contato">
-            <!-- Feedback de envio -->
-            <div class="form-feedback" id="formFeedback" role="alert" aria-live="polite"></div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="inputName" class="form-label">Nome</label>
-                <input type="text" id="inputName" name="name" class="form-input"
-                       placeholder="Seu nome completo"
-                       autocomplete="name" required
-                       aria-required="true" />
-              </div>
-              <div class="form-group">
-                <label for="inputEmail" class="form-label">Email</label>
-                <input type="email" id="inputEmail" name="email" class="form-input"
-                       placeholder="seu@email.com"
-                       autocomplete="email" required
-                       aria-required="true" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="inputSubject" class="form-label">Assunto</label>
-              <input type="text" id="inputSubject" name="subject" class="form-input"
-                     placeholder="Sobre o que você quer conversar?"
-                     required aria-required="true" />
-            </div>
-
-            <div class="form-group">
-              <label for="inputMessage" class="form-label">Mensagem</label>
-              <textarea id="inputMessage" name="message" class="form-input form-textarea"
-                        placeholder="Descreva seu projeto ou ideia..."
-                        rows="5" required aria-required="true"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn--primary form-submit" aria-label="Enviar mensagem">
-              <span class="btn-text">Enviar Mensagem</span>
-              <i class="fas fa-paper-plane btn-icon" aria-hidden="true"></i>
-            </button>
-          </form>
-        </div>
-
-      </div><!-- /contact-grid -->
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Brand -->
-        <div class="footer-brand">
-          <a href="#hero" class="footer-logo" aria-label="Ir para o topo">
-            <span class="logo-initials">HLR</span>
-            <span class="logo-name">Hudson L. Rausch</span>
-          </a>
-          <p class="footer-tagline">Transformando dados em decisões estratégicas.</p>
-        </div>
-
-        <!-- Links rápidos -->
-        <nav class="footer-nav" aria-label="Links rápidos do rodapé">
-          <h4 class="footer-nav-title">Navegação</h4>
-          <ul class="footer-nav-list">
-            <li><a href="#about"    class="footer-link">Sobre</a></li>
-            <li><a href="#skills"   class="footer-link">Skills</a></li>
-            <li><a href="#projects" class="footer-link">Projetos</a></li>
-            <li><a href="#contact"  class="footer-link">Contato</a></li>
+        <div class="exp-item">
+          <p class="exp-company">Bunge Service Center Brasil</p>
+          <p class="exp-period">agosto de 2019 — julho de 2023 · Gaspar, SC</p>
+          <p class="exp-role">Analista Fiscal Júnior</p>
+          <ul class="exp-bullets">
+            <li>Parametrização fiscal e suporte a operações tributárias em múltiplas unidades de negócio via SAP</li>
+            <li>Análise de impacto tributário em processos de negócio e elaboração de recomendações de conformidade</li>
+            <li>Suporte à conformidade regulatória e participação em auditorias internas</li>
           </ul>
-        </nav>
+        </div>
 
-        <!-- Redes sociais -->
-        <div class="footer-social">
-          <h4 class="footer-nav-title">Redes</h4>
-          <div class="footer-social-icons" aria-label="Redes sociais">
-            <a href="https://github.com/hudsonlenz"     target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-            <a href="https://www.linkedin.com/in/hudson-lrausch/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-            <a href="hudson.lenz@hotmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+        <div class="exp-item">
+          <p class="exp-company">Bunge Service Center Brasil</p>
+          <p class="exp-period">agosto de 2018 — julho de 2019 · Gaspar, SC</p>
+          <p class="exp-role">Estagiário</p>
+          <ul class="exp-bullets">
+            <li>Suporte às operações fiscais e administrativas do centro de serviços</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <p class="exp-company">Ala Assessoria em Seguros</p>
+          <p class="exp-period">junho de 2016 — junho de 2018 · Blumenau, SC</p>
+          <p class="exp-role">Assistente Administrativo</p>
+          <ul class="exp-bullets">
+            <li>Suporte administrativo e operacional em empresa de assessoria de seguros</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Formação -->
+    <section class="cv-section">
+      <p class="cv-section-label">Educação & Certificações</p>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div>
+            <p class="edu-degree">Bacharelado em Administração de Empresas</p>
+            <p class="edu-school">Universidade Regional de Blumenau — FURB</p>
           </div>
+          <span class="edu-year">2016 – 2021</span>
+        </div>
+        <div class="edu-item">
+          <div>
+            <p class="edu-degree">Gestão e Negócios Internacionais — Intercâmbio</p>
+            <p class="edu-school">ISCTE – University Institute of Lisbon</p>
+          </div>
+          <span class="edu-year">2023</span>
+        </div>
+        <div class="edu-item">
+          <div>
+            <p class="edu-degree">SAP Academy – Materials Management</p>
+            <p class="edu-school">Ka Solution</p>
+          </div>
+          <span class="edu-year">2023</span>
+        </div>
+        <div class="edu-item">
+          <div>
+            <p class="edu-degree">Yellow Belt — Lean Six Sigma</p>
+            <p class="edu-school">Certificação</p>
+          </div>
+          <span class="edu-year">—</span>
         </div>
       </div>
+    </section>
 
-      <!-- Bottom bar -->
-      <div class="footer-bottom">
-        <p class="footer-copy">
-  &copy; <span id="footerYear"></span> Hudson L. Rausch. Se você chegou até aqui, meu muito obrigado. <span role="img" aria-label="rock on">🤘</span> Estamos junto.
-</p>
-        </p>
-        <p class="footer-made">
-          <a href="https://github.com/hudsonlenz/portfolio" target="_blank" rel="noopener noreferrer"
-             class="footer-link" aria-label="Ver código-fonte do portfólio">
-            <i class="fab fa-github" aria-hidden="true"></i> Código-fonte
-          </a>
-        </p>
+    <!-- Skills -->
+    <section class="cv-section">
+      <p class="cv-section-label">Habilidades Técnicas</p>
+      <div class="skills-grid">
+        <div class="skill-pill"><span class="skill-pill-dot"></span>SQL & BigQuery</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Google Cloud Platform</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Power BI</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Tableau</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Excel Avançado</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Python (Análise & Automação)</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Apache Airflow & Dataflow</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>SAP MM & Data Services</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Collibra (DQ & Catalog)</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Governança de Dados</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>GDPR / LGPD</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Scrum & Kanban</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>JIRA</div>
+        <div class="skill-pill"><span class="skill-pill-dot"></span>Catalogação de Dados</div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- ============================================================
-       BOTÃO VOLTAR AO TOPO
-  ============================================================ -->
-  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo da página" title="Voltar ao topo">
-    <i class="fas fa-chevron-up" aria-hidden="true"></i>
-  </button>
-
-  <!-- ============================================================
-       LIGHTBOX / GALERIA
-  ============================================================ -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização do projeto" hidden>
-    <div class="lightbox-backdrop"></div>
-    <div class="lightbox-container">
-      <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">
-        <i class="fas fa-times" aria-hidden="true"></i>
-      </button>
-      <div class="lightbox-image-wrap">
-        <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <!-- Idiomas -->
+    <section class="cv-section">
+      <p class="cv-section-label">Idiomas</p>
+      <div class="lang-list">
+        <div class="lang-item">
+          <span class="lang-flag">🇧🇷</span>
+          Português
+          <span class="lang-level">Nativo</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag">🇺🇸</span>
+          Inglês
+          <span class="lang-level">Fluente</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag">🇪🇸</span>
+          Espanhol
+          <span class="lang-level">Básico</span>
+        </div>
       </div>
-      <div class="lightbox-footer">
-        <p class="lightbox-title" id="lightbox-title"></p>
-        <a class="lightbox-github-link" id="lightbox-github-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver no GitHub">
-          <i class="fab fa-github" aria-hidden="true"></i>
-          Ver no GitHub
+    </section>
+
+    <!-- Projetos -->
+    <section class="cv-section">
+      <p class="cv-section-label">Projetos Relevantes</p>
+      <div class="project-card">
+        <p class="project-card-title">Master Data Cleanup — Materiais</p>
+        <p>Pipeline ponta a ponta: ingestão via SAP Data Services até o Google Cloud com ETL completo, entregando ~15 páginas de dashboards em Power BI migrados para Tableau. Melhorou a acurácia dos dados e habilitou rastreamento de materiais em tempo real na organização.</p>
+      </div>
+      <div class="project-card">
+        <p class="project-card-title">Rodo Freight Price Monitoring</p>
+        <p>Visualização de variações de preço em múltiplas rotas de frete no SAP com destaque de outliers via Collibra e dashboards em Power BI. Habilitou decisões proativas na gestão de custos de frete e reduziu exposição a variações inesperadas.</p>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <div class="cv-footer-cta">
+      <div class="cv-footer-cta-text">
+        <p>Quer o arquivo completo?</p>
+        <p>Faça o download do PDF com todas as informações formatadas.</p>
+      </div>
+      <div class="btn-download-group">
+        <a href="assets/Curriculo-Hudson_Lenz_Rausch.pdf" download="Curriculo-Hudson_Lenz_Rausch.pdf" class="btn-download">
+          <i class="fas fa-download"></i>
+          Português <span class="btn-lang">PT</span>
+        </a>
+        <a href="assets/Curriculum-Hudson_Lenz_Rausch.pdf" download="Curriculum-Hudson_Lenz_Rausch.pdf" class="btn-download btn-download--ghost">
+          <i class="fas fa-download"></i>
+          English <span class="btn-lang">EN</span>
         </a>
       </div>
     </div>
-  </div>
 
-  <!-- ============================================================
-       SCRIPT PRINCIPAL
-  ============================================================ -->
-  <script src="script.js"></script>
+  </main>
 
   <!-- ============================================================
        GOOGLE TRANSLATE
   ============================================================ -->
-  <!-- Widget oculto — necessário para inicializar a API -->
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -887,7 +753,6 @@
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script>
-    // Dropdown de idiomas customizado
     (function() {
       const langs = [
         { code: 'pt', label: '🇧🇷 Português' },
@@ -898,15 +763,12 @@
         { code: 'de', label: '🇩🇪 Deutsch'   },
       ];
 
-      // Detecta idioma ativo via cookie
       function getActiveLang() {
         const m = document.cookie.match(/googtrans=\/pt\/([a-z]+)/);
         return m ? m[1] : 'pt';
       }
 
-      // Aplica tradução via cookie googtrans + reload
       function setLang(lang) {
-        // Limpa cookies anteriores
         const domains = [location.hostname, '.' + location.hostname, ''];
         domains.forEach(d => {
           document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${d}`;
@@ -919,35 +781,31 @@
         location.reload();
       }
 
-      // Cria o dropdown
       const activeLang = getActiveLang();
       const dropdown = document.createElement('div');
       dropdown.id = 'translate-dropdown';
-      dropdown.setAttribute('aria-label', 'Selecionar idioma');
       dropdown.innerHTML = langs.map(l =>
         `<button class="translate-option${l.code === activeLang ? ' active' : ''}" data-lang="${l.code}">${l.label}</button>`
       ).join('');
       document.body.appendChild(dropdown);
 
       const btn = document.getElementById('translateBtn');
+      const caret = document.getElementById('translateCaret');
 
-      // Toggle do dropdown
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
         const open = dropdown.classList.toggle('open');
-        btn.classList.toggle('open', open);
+        if (caret) caret.style.transform = open ? 'rotate(180deg)' : '';
         const rect = btn.getBoundingClientRect();
         dropdown.style.top   = (rect.bottom + 8) + 'px';
         dropdown.style.right = (window.innerWidth - rect.right) + 'px';
       });
 
-      // Fecha ao clicar fora
       document.addEventListener('click', () => {
         dropdown.classList.remove('open');
-        btn.classList.remove('open');
+        if (caret) caret.style.transform = '';
       });
 
-      // Aplica tradução ao clicar numa opção
       dropdown.addEventListener('click', function(e) {
         const target = e.target.closest('.translate-option');
         if (!target) return;
@@ -957,45 +815,11 @@
   </script>
 
   <style>
-    /* ── Widget nativo — oculto completamente ── */
     #google_translate_element,
     .goog-te-banner-frame,
     .skiptranslate > iframe { display: none !important; }
     body { top: 0 !important; }
 
-    /* ── Botão Language ── */
-    .btn-language {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.42rem 0.9rem;
-      border-radius: 9999px;
-      border: 1px solid var(--border-a, rgba(212,168,67,0.35));
-      background: transparent;
-      color: var(--accent, #d4a843);
-      font-family: var(--font-b, 'DM Sans', sans-serif);
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
-      white-space: nowrap;
-    }
-    .btn-language:hover {
-      background: var(--accent-dim, rgba(212,168,67,0.10));
-      border-color: var(--accent, #d4a843);
-      transform: translateY(-1px);
-    }
-    .btn-language-caret {
-      font-size: 0.6rem;
-      opacity: 0.7;
-      transition: transform 200ms ease;
-    }
-    .btn-language.open .btn-language-caret {
-      transform: rotate(180deg);
-    }
-
-    /* ── Dropdown customizado ── */
     #translate-dropdown {
       position: fixed;
       z-index: 9999;
