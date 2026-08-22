@@ -367,7 +367,7 @@
               <text x="50%" y="56%" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="700" fill="currentColor" font-family="monospace">SAP</text>
             </svg>
           </div>
-          <span class="skill-icon-label">SAP MM</span>
+          <span class="skill-icon-label">SAP (ECC · FI · MM)</span>
         </div>
 
         <div class="skill-icon-card">
@@ -389,6 +389,13 @@
             <i class="fas fa-book-open" style="font-size:1.8rem"></i>
           </div>
           <span class="skill-icon-label">Collibra Catalog</span>
+        </div>
+
+        <div class="skill-icon-card">
+          <div class="skill-icon-wrap" aria-hidden="true">
+            <i class="fas fa-sitemap" style="font-size:1.8rem"></i>
+          </div>
+          <span class="skill-icon-label">Data Governance</span>
         </div>
 
         <div class="skill-icon-card">
@@ -453,7 +460,7 @@
 
         <div class="skill-bar-item reveal-item">
           <div class="skill-bar-header">
-            <span class="skill-bar-name">SAP MM & SAP Data Services</span>
+            <span class="skill-bar-name">SAP (ECC · FI · MM) & SAP Data Services</span>
             <span class="skill-bar-pct">90%</span>
           </div>
           <div class="skill-bar-track" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="SAP: 90%">
@@ -468,6 +475,16 @@
           </div>
           <div class="skill-bar-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Collibra: 85%">
             <div class="skill-bar-fill" data-width="85"></div>
+          </div>
+        </div>
+
+        <div class="skill-bar-item reveal-item">
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">Governança de Dados</span>
+            <span class="skill-bar-pct">88%</span>
+          </div>
+          <div class="skill-bar-track" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Governança de Dados: 88%">
+            <div class="skill-bar-fill" data-width="88"></div>
           </div>
         </div>
 
@@ -526,8 +543,13 @@
         <h2 class="section-title">Trabalhos em Destaque</h2>
       </div>
 
-      <!-- Grid de projetos -->
-      <div class="projects-grid">
+      <!-- Carrossel de projetos -->
+      <div class="projects-carousel">
+        <button class="carousel-arrow prev" id="projectsPrev" type="button" aria-label="Projeto anterior">
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+
+        <div class="projects-grid" id="projectsTrack">
 
         <!-- Projeto 1 -->
         <article class="project-card reveal-item" data-lightbox data-img="img/flow-fretes.svg" data-title="Monitor de Variação de Preços de Frete" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Monitor de Variação de Preços de Frete">
@@ -560,7 +582,7 @@
                 <span class="tag">Power BI</span>
               </div>
 
-              <template class="project-details">
+              <div class="project-details" hidden>
             <div class="lb-section">
               <p class="lb-section-title">O desafio</p>
               <div class="lb-grid">
@@ -583,22 +605,18 @@
               <p class="lb-section-title">Fontes SAP</p>
               <div class="lb-grid">
                 <div class="lb-source">
-                  <span class="lb-code">KONH</span>
                   <h4>Cabeçalho da condição</h4>
                   <p>Usuário, datas, chaves de aplicação, validade e VAKEY.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">KONP</span>
                   <h4>Itens da condição</h4>
                   <p>Valor, moeda, unidade de preço e de medida.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">ZGLVTBLP500_ITEM</span>
                   <h4>Alterações de frete</h4>
                   <p>Chave, vigência, condição, diferença e valor.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">Itinerários</span>
                   <h4>Descrição de rota</h4>
                   <p>Relaciona ROUTE e a descrição amigável.</p>
                 </div>
@@ -634,7 +652,7 @@
                 </div>
               </div>
             </div>
-              </template>
+              </div>
             </div>
           </div>
         </article>
@@ -671,7 +689,7 @@
                 <span class="tag">Data Quality</span>
               </div>
 
-              <template class="project-details">
+              <div class="project-details" hidden>
             <div class="lb-section">
               <p class="lb-section-title">O desafio</p>
               <div class="lb-grid">
@@ -694,22 +712,18 @@
               <p class="lb-section-title">Fontes SAP</p>
               <div class="lb-grid">
                 <div class="lb-source">
-                  <span class="lb-code">MARA</span>
                   <h4>Cadastro global</h4>
                   <p>Data de criação, categoria e descrições do material.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">MARC</span>
                   <h4>Dados por centro</h4>
                   <p>Status, NCM, planejamento e controle de estoque.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">WBHI</span>
                   <h4>Contratos de venda</h4>
                   <p>Contratos ativos e última utilização comercial.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">T001W · T134T · T604F</span>
                   <h4>Estruturas &amp; textos</h4>
                   <p>Filial, país, categoria, NCM e grupo de mercadoria.</p>
                 </div>
@@ -745,7 +759,7 @@
                 </div>
               </div>
             </div>
-              </template>
+              </div>
             </div>
           </div>
         </article>
@@ -782,7 +796,7 @@
                 <span class="tag">Data Governance</span>
               </div>
 
-              <template class="project-details">
+              <div class="project-details" hidden>
             <div class="lb-section">
               <p class="lb-section-title">O desafio</p>
               <div class="lb-grid">
@@ -805,27 +819,22 @@
               <p class="lb-section-title">Fontes SAP</p>
               <div class="lb-grid">
                 <div class="lb-source">
-                  <span class="lb-code">YTRGL_PAY_POSIT</span>
                   <h4>Posições de pagamento</h4>
                   <p>Contrato, documento, fornecedor, favorecido e status.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">WBHI</span>
                   <h4>Contrato comercial</h4>
                   <p>Vínculo entre contrato e material negociado.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">LFA1</span>
                   <h4>Fornecedor</h4>
                   <p>Nome, UF e base de CNPJ do fornecedor.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">KNA1</span>
                   <h4>Cliente</h4>
                   <p>Nome e UF para favorecidos que são clientes.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">MAKT</span>
                   <h4>Texto do material</h4>
                   <p>Descrição no idioma P, deduplicada por CDC.</p>
                 </div>
@@ -861,7 +870,7 @@
                 </div>
               </div>
             </div>
-              </template>
+              </div>
             </div>
           </div>
         </article>
@@ -897,7 +906,7 @@
                 <span class="tag">RTR</span>
               </div>
 
-              <template class="project-details">
+              <div class="project-details" hidden>
             <div class="lb-section">
               <p class="lb-section-title">Frentes do projeto</p>
               <div class="lb-grid">
@@ -928,33 +937,34 @@
               <p class="lb-section-title">Fontes SAP</p>
               <div class="lb-grid">
                 <div class="lb-source">
-                  <span class="lb-code">FAGLFLEXT</span>
                   <h4>Razão contábil</h4>
                   <p>Saldo anterior, movimento e acumulado por conta e segmento.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">BKPF</span>
                   <h4>Documentos contábeis</h4>
                   <p>Base para o cruzamento com notas fiscais.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">J_1BNFDOC</span>
                   <h4>Notas fiscais</h4>
                   <p>Chave de acesso e dados do documento fiscal.</p>
                 </div>
                 <div class="lb-source">
-                  <span class="lb-code">J_1BNFSTX</span>
                   <h4>Impostos por NF</h4>
                   <p>ICMS, IPI, PIS/COFINS agrupados por segmento.</p>
                 </div>
               </div>
             </div>
-              </template>
+              </div>
             </div>
           </div>
         </article>
 
-      </div><!-- /projects-grid -->
+        </div><!-- /projects-grid -->
+
+        <button class="carousel-arrow next" id="projectsNext" type="button" aria-label="Próximo projeto">
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div><!-- /projects-carousel -->
 
       <!-- Link para todos os repositórios -->
       <div class="projects-footer reveal-item">
@@ -1138,7 +1148,13 @@
 
       <div class="lightbox-scroll">
         <div class="lightbox-image-wrap">
+          <button class="lightbox-nav prev" id="lightbox-prev" type="button" aria-label="Projeto anterior">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+          </button>
           <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+          <button class="lightbox-nav next" id="lightbox-next" type="button" aria-label="Próximo projeto">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          </button>
         </div>
         <div class="lightbox-footer">
           <p class="lightbox-title" id="lightbox-title"></p>
