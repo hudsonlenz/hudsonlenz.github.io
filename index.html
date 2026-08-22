@@ -530,42 +530,7 @@
       <div class="projects-grid">
 
         <!-- Projeto 1 -->
-        <article class="project-card reveal-item" data-lightbox data-img="img/Dashboard_1.jpg" data-title="Master Data Cleanup — Materiais" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Master Data Cleanup">
-          <div class="project-card-inner">
-            <div class="project-preview" aria-hidden="true">
-              <div class="project-preview-icon">
-                <i class="fas fa-database"></i>
-              </div>
-              <div class="project-preview-bg"></div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-meta">
-                <span class="project-category">SAP DS · GCP · Power BI · Tableau</span>
-                <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
-                   class="project-github-link" aria-label="Ver código no GitHub">
-                  <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-              </div>
-
-              <h3 class="project-title">Master Data Cleanup — Materiais</h3>
-
-              <p class="project-description">
-                Pipeline ponta a ponta: ingestão via SAP Data Services até o Google Cloud com ETL completo. Entrega de ~15 páginas de dashboards em Power BI migrados para Tableau. Melhorou acurácia dos dados e habilitou rastreamento de materiais em tempo real.
-              </p>
-
-              <div class="project-tags" aria-label="Tecnologias usadas">
-                <span class="tag">SAP Data Services</span>
-                <span class="tag">BigQuery</span>
-                <span class="tag">Power BI</span>
-                <span class="tag">Tableau</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Projeto 2 -->
-        <article class="project-card reveal-item" data-lightbox data-img="img/Dashboard_2.jpg" data-title="Monitoramento de Preços de Frete Rodoviário" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Rodo Freight Price Monitoring">
+        <article class="project-card reveal-item" data-lightbox data-img="img/flow-fretes.svg" data-title="Monitor de Variação de Preços de Frete" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Monitor de Variação de Preços de Frete">
           <div class="project-card-inner">
             <div class="project-preview" aria-hidden="true">
               <div class="project-preview-icon">
@@ -576,31 +541,67 @@
 
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-category">SAP · Collibra · Power BI</span>
+                <span class="project-category">SAP Pricing · SAP Data Services · BigQuery · Power BI</span>
                 <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
                    class="project-github-link" aria-label="Ver código no GitHub">
                   <i class="fab fa-github" aria-hidden="true"></i>
                 </a>
               </div>
 
-              <h3 class="project-title">Rodo Freight Price Monitoring</h3>
+              <h3 class="project-title">Monitor de Variação de Preços de Frete</h3>
 
               <p class="project-description">
-                Visualização de variações de preço em múltiplas rotas de frete no SAP com destaque de outliers via Collibra e Power BI. Habilitou decisões proativas na gestão de custos de frete e reduziu exposição a variações inesperadas.
+                Solução de auditoria que reconstrói as condições de preço de frete do SAP (KONH/KONP) no BigQuery via SAP Data Services, calculando a variação percentual entre alterações e enriquecendo rotas e centros com descrições de negócio. Entrega um dashboard em Power BI com rastreabilidade completa de quem alterou cada preço e o impacto na malha de fretes.
               </p>
 
               <div class="project-tags" aria-label="Tecnologias usadas">
                 <span class="tag">SAP</span>
-                <span class="tag">Collibra</span>
+                <span class="tag">SAP Data Services</span>
+                <span class="tag">BigQuery</span>
                 <span class="tag">Power BI</span>
-                <span class="tag">SQL</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projeto 2 -->
+        <article class="project-card reveal-item" data-lightbox data-img="img/flow-materiais.svg" data-title="Master Data Management de Materiais" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Master Data Management de Materiais">
+          <div class="project-card-inner">
+            <div class="project-preview" aria-hidden="true">
+              <div class="project-preview-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="project-preview-bg"></div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-category">SAP ECC · SAP Data Services · BigQuery · Power BI</span>
+                <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
+                   class="project-github-link" aria-label="Ver código no GitHub">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+              </div>
+
+              <h3 class="project-title">Master Data Management de Materiais</h3>
+
+              <p class="project-description">
+                Plataforma de governança que consolida o cadastro mestre de materiais do SAP (MARA, MARC, WBHI) em uma camada MDM no BigQuery, com motor automatizado de bloqueio (por centro, total ou já bloqueado), regra de elegibilidade para Direct PO e classificação por tipo de material. Entregue como consulta guiada e dashboards de evolução da base em Power BI.
+              </p>
+
+              <div class="project-tags" aria-label="Tecnologias usadas">
+                <span class="tag">SAP ECC</span>
+                <span class="tag">BigQuery</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">MDM</span>
+                <span class="tag">Data Quality</span>
               </div>
             </div>
           </div>
         </article>
 
         <!-- Projeto 3 -->
-        <article class="project-card reveal-item" data-lightbox data-img="img/Dashboard_3.jpg" data-title="Data Governance Framework — GDPR/LGPD" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Data Governance Framework">
+        <article class="project-card reveal-item" data-lightbox data-img="img/flow-recebedor.svg" data-title="Recebedor Divergente" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Recebedor Divergente">
           <div class="project-card-inner">
             <div class="project-preview" aria-hidden="true">
               <div class="project-preview-icon">
@@ -611,59 +612,60 @@
 
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-category">Collibra · GDPR · Data Quality</span>
+                <span class="project-category">SAP · BigQuery · ServiceNow · LGPD</span>
                 <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
                    class="project-github-link" aria-label="Ver código no GitHub">
                   <i class="fab fa-github" aria-hidden="true"></i>
                 </a>
               </div>
 
-              <h3 class="project-title">Data Governance Framework</h3>
+              <h3 class="project-title">Recebedor Divergente</h3>
 
               <p class="project-description">
-                Implementação de framework corporativo de governança de dados com Collibra — cobrindo catalogação, linhagem, qualidade e conformidade com GDPR/LGPD. Padronizou políticas de dados em múltiplas unidades de negócio da Bunge.
+                Solução de conformidade que reconcilia o fornecedor do contrato com o favorecido do pagamento no SAP, aplicando regras de coalescência de cadastro e mascaramento de dados sensíveis (LGPD) no BigQuery. Os resultados são publicados em um portal self-service no ServiceNow, permitindo consulta segura por clientes externos.
               </p>
 
               <div class="project-tags" aria-label="Tecnologias usadas">
-                <span class="tag">Collibra</span>
-                <span class="tag">GDPR</span>
+                <span class="tag">SAP</span>
+                <span class="tag">BigQuery</span>
+                <span class="tag">ServiceNow</span>
                 <span class="tag">LGPD</span>
-                <span class="tag">Data Quality</span>
+                <span class="tag">Data Governance</span>
               </div>
             </div>
           </div>
         </article>
 
         <!-- Projeto 4 -->
-        <article class="project-card reveal-item" data-lightbox data-img="img/Dashboard_4.jpg" data-title="Pipeline ETL com Airflow & GCP" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Pipeline ETL Airflow GCP">
+        <article class="project-card reveal-item" data-lightbox data-img="img/flow-rtr.svg" data-title="RTR — Balancete &amp; Faturamento" data-github="https://github.com/hudsonlenz" aria-label="Projeto: RTR Balancete e Faturamento">
           <div class="project-card-inner">
             <div class="project-preview" aria-hidden="true">
               <div class="project-preview-icon">
-                <i class="fas fa-stream"></i>
+                <i class="fas fa-calculator"></i>
               </div>
               <div class="project-preview-bg"></div>
             </div>
 
             <div class="project-content">
               <div class="project-meta">
-                <span class="project-category">Airflow · Dataflow · BigQuery</span>
+                <span class="project-category">SAP FI · BigQuery · Power BI</span>
                 <a href="https://github.com/hudsonlenz" target="_blank" rel="noopener noreferrer"
                    class="project-github-link" aria-label="Ver código no GitHub">
                   <i class="fab fa-github" aria-hidden="true"></i>
                 </a>
               </div>
 
-              <h3 class="project-title">Pipeline ETL com Airflow & GCP</h3>
+              <h3 class="project-title">RTR — Balancete &amp; Faturamento</h3>
 
               <p class="project-description">
-                Gestão de pipelines de dados de ponta a ponta no Google Cloud Platform usando Apache Airflow para orquestração e Dataflow para transformações em escala. Integração com BigQuery e SAP Data Services para ingestão de dados corporativos.
+                Duas frentes de Record to Report que reconstroem, a partir do SAP, o balancete contábil (FAGLFLEXT) e o faturamento fiscal (notas fiscais e impostos), com deduplicação por CDC no BigQuery e validação direta contra o razão contábil. Publicado em Power BI para análise mês a mês por conta, segmento e centro de lucro.
               </p>
 
               <div class="project-tags" aria-label="Tecnologias usadas">
-                <span class="tag">Apache Airflow</span>
-                <span class="tag">Dataflow</span>
+                <span class="tag">SAP FI</span>
                 <span class="tag">BigQuery</span>
-                <span class="tag">GCP</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">RTR</span>
               </div>
             </div>
           </div>
