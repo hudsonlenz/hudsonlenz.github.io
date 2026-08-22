@@ -533,10 +533,9 @@
         <article class="project-card reveal-item" data-lightbox data-img="img/flow-fretes.svg" data-title="Monitor de Variação de Preços de Frete" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Monitor de Variação de Preços de Frete">
           <div class="project-card-inner">
             <div class="project-preview" aria-hidden="true">
-              <div class="project-preview-icon">
-                <i class="fas fa-truck"></i>
-              </div>
               <div class="project-preview-bg"></div>
+              <img class="project-preview-img" src="img/flow-fretes.svg" alt="" loading="lazy" />
+              <span class="project-preview-expand"><i class="fas fa-up-right-and-down-left-from-center" aria-hidden="true"></i></span>
             </div>
 
             <div class="project-content">
@@ -560,6 +559,82 @@
                 <span class="tag">BigQuery</span>
                 <span class="tag">Power BI</span>
               </div>
+
+              <template class="project-details">
+            <div class="lb-section">
+              <p class="lb-section-title">O desafio</p>
+              <div class="lb-grid">
+                <div class="lb-chip">
+                  <h4>Rastreabilidade limitada</h4>
+                  <p>Sem visão consolidada de preço anterior, preço atual, diferença e responsável por cada mudança.</p>
+                </div>
+                <div class="lb-chip">
+                  <h4>Códigos sem contexto</h4>
+                  <p>Rotas e centros representados apenas por códigos técnicos, sem descrição de itinerário e filial.</p>
+                </div>
+                <div class="lb-chip">
+                  <h4>Baixa visibilidade</h4>
+                  <p>Ausência de indicadores para auditar aumentos, reduções e o compliance contratual dos fretes.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lb-section">
+              <p class="lb-section-title">Fontes SAP</p>
+              <div class="lb-grid">
+                <div class="lb-source">
+                  <span class="lb-code">KONH</span>
+                  <h4>Cabeçalho da condição</h4>
+                  <p>Usuário, datas, chaves de aplicação, validade e VAKEY.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">KONP</span>
+                  <h4>Itens da condição</h4>
+                  <p>Valor, moeda, unidade de preço e de medida.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">ZGLVTBLP500_ITEM</span>
+                  <h4>Alterações de frete</h4>
+                  <p>Chave, vigência, condição, diferença e valor.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">Itinerários</span>
+                  <h4>Descrição de rota</h4>
+                  <p>Relaciona ROUTE e a descrição amigável.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lb-section">
+              <p class="lb-section-title">Regras de negócio</p>
+              <div class="lb-rules">
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Última versão</p>
+                    <p>MAX(AEDATTM) por chave para isolar a versão mais recente da alteração.</p>
+                  </div>
+                </div>
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Integração das fontes</p>
+                    <p>Junções entre alteração, KONH, KONP e itinerários.</p>
+                  </div>
+                </div>
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Variação percentual</p>
+                    <p>Comparação entre o valor da alteração e o valor anterior.</p>
+                  </div>
+                </div>
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Enriquecimento</p>
+                    <p>Mapeamento do prefixo em filial, centro, grupo e rota.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </template>
             </div>
           </div>
         </article>
@@ -568,10 +643,9 @@
         <article class="project-card reveal-item" data-lightbox data-img="img/flow-materiais.svg" data-title="Master Data Management de Materiais" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Master Data Management de Materiais">
           <div class="project-card-inner">
             <div class="project-preview" aria-hidden="true">
-              <div class="project-preview-icon">
-                <i class="fas fa-database"></i>
-              </div>
               <div class="project-preview-bg"></div>
+              <img class="project-preview-img" src="img/flow-materiais.svg" alt="" loading="lazy" />
+              <span class="project-preview-expand"><i class="fas fa-up-right-and-down-left-from-center" aria-hidden="true"></i></span>
             </div>
 
             <div class="project-content">
@@ -596,6 +670,82 @@
                 <span class="tag">MDM</span>
                 <span class="tag">Data Quality</span>
               </div>
+
+              <template class="project-details">
+            <div class="lb-section">
+              <p class="lb-section-title">O desafio</p>
+              <div class="lb-grid">
+                <div class="lb-chip">
+                  <h4>Consulta descentralizada</h4>
+                  <p>Dificuldade em localizar materiais indiretos e identificar itens elegíveis para Direct PO.</p>
+                </div>
+                <div class="lb-chip">
+                  <h4>Base sem saneamento</h4>
+                  <p>Muitos materiais sem movimentação e sem regra automatizada de bloqueio total ou por centro.</p>
+                </div>
+                <div class="lb-chip">
+                  <h4>Baixa visibilidade</h4>
+                  <p>Ausência de indicadores sobre status e evolução histórica da base de materiais.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lb-section">
+              <p class="lb-section-title">Fontes SAP</p>
+              <div class="lb-grid">
+                <div class="lb-source">
+                  <span class="lb-code">MARA</span>
+                  <h4>Cadastro global</h4>
+                  <p>Data de criação, categoria e descrições do material.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">MARC</span>
+                  <h4>Dados por centro</h4>
+                  <p>Status, NCM, planejamento e controle de estoque.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">WBHI</span>
+                  <h4>Contratos de venda</h4>
+                  <p>Contratos ativos e última utilização comercial.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">T001W · T134T · T604F</span>
+                  <h4>Estruturas &amp; textos</h4>
+                  <p>Filial, país, categoria, NCM e grupo de mercadoria.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lb-section">
+              <p class="lb-section-title">Regras de negócio</p>
+              <div class="lb-rules">
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Classificação</p>
+                    <p>Direto, Indireto e Fiscal/Serviços a partir das categorias MTART.</p>
+                  </div>
+                </div>
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Elegibilidade Direct PO</p>
+                    <p>Material ZFAD ou ZFMR com contrato marcado como elegível.</p>
+                  </div>
+                </div>
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Motor de bloqueio</p>
+                    <p>Não Bloquear, Por Centro, Total ou Já Bloqueado, por estoque e movimentação.</p>
+                  </div>
+                </div>
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Priorização</p>
+                    <p>Alta, Média e Baixa pela última data válida de utilização.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </template>
             </div>
           </div>
         </article>
@@ -604,10 +754,9 @@
         <article class="project-card reveal-item" data-lightbox data-img="img/flow-recebedor.svg" data-title="Recebedor Divergente" data-github="https://github.com/hudsonlenz" aria-label="Projeto: Recebedor Divergente">
           <div class="project-card-inner">
             <div class="project-preview" aria-hidden="true">
-              <div class="project-preview-icon">
-                <i class="fas fa-shield-halved"></i>
-              </div>
               <div class="project-preview-bg"></div>
+              <img class="project-preview-img" src="img/flow-recebedor.svg" alt="" loading="lazy" />
+              <span class="project-preview-expand"><i class="fas fa-up-right-and-down-left-from-center" aria-hidden="true"></i></span>
             </div>
 
             <div class="project-content">
@@ -632,6 +781,87 @@
                 <span class="tag">LGPD</span>
                 <span class="tag">Data Governance</span>
               </div>
+
+              <template class="project-details">
+            <div class="lb-section">
+              <p class="lb-section-title">O desafio</p>
+              <div class="lb-grid">
+                <div class="lb-chip">
+                  <h4>Divergência de recebedor</h4>
+                  <p>Identificar pagamentos cujo favorecido difere do fornecedor do contrato comercial.</p>
+                </div>
+                <div class="lb-chip">
+                  <h4>Enriquecimento cadastral</h4>
+                  <p>Falta de nome, UF e material para dar contexto de negócio a cada divergência.</p>
+                </div>
+                <div class="lb-chip">
+                  <h4>Entrega externa segura</h4>
+                  <p>Exposição a clientes externos exigindo mascaramento e governança de dados sensíveis.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lb-section">
+              <p class="lb-section-title">Fontes SAP</p>
+              <div class="lb-grid">
+                <div class="lb-source">
+                  <span class="lb-code">YTRGL_PAY_POSIT</span>
+                  <h4>Posições de pagamento</h4>
+                  <p>Contrato, documento, fornecedor, favorecido e status.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">WBHI</span>
+                  <h4>Contrato comercial</h4>
+                  <p>Vínculo entre contrato e material negociado.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">LFA1</span>
+                  <h4>Fornecedor</h4>
+                  <p>Nome, UF e base de CNPJ do fornecedor.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">KNA1</span>
+                  <h4>Cliente</h4>
+                  <p>Nome e UF para favorecidos que são clientes.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">MAKT</span>
+                  <h4>Texto do material</h4>
+                  <p>Descrição no idioma P, deduplicada por CDC.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lb-section">
+              <p class="lb-section-title">Regras de negócio</p>
+              <div class="lb-rules">
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Reconciliação</p>
+                    <p>JOIN entre pagamento, contrato, fornecedor e favorecido.</p>
+                  </div>
+                </div>
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Recebedor divergente</p>
+                    <p>Escopo por empresa, tipo, subtipo e status, com favorecido preenchido.</p>
+                  </div>
+                </div>
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Coalescência</p>
+                    <p>Resolve nome, código e UF a partir de LFA1 ou KNA1.</p>
+                  </div>
+                </div>
+                <div class="lb-rule">
+                  <div>
+                    <p class="lb-rule-title">Mascaramento (LGPD)</p>
+                    <p>Exposição apenas da base do CNPJ do favorecido.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </template>
             </div>
           </div>
         </article>
@@ -640,10 +870,9 @@
         <article class="project-card reveal-item" data-lightbox data-img="img/flow-rtr.svg" data-title="RTR — Balancete &amp; Faturamento" data-github="https://github.com/hudsonlenz" aria-label="Projeto: RTR Balancete e Faturamento">
           <div class="project-card-inner">
             <div class="project-preview" aria-hidden="true">
-              <div class="project-preview-icon">
-                <i class="fas fa-calculator"></i>
-              </div>
               <div class="project-preview-bg"></div>
+              <img class="project-preview-img" src="img/flow-rtr.svg" alt="" loading="lazy" />
+              <span class="project-preview-expand"><i class="fas fa-up-right-and-down-left-from-center" aria-hidden="true"></i></span>
             </div>
 
             <div class="project-content">
@@ -667,6 +896,60 @@
                 <span class="tag">Power BI</span>
                 <span class="tag">RTR</span>
               </div>
+
+              <template class="project-details">
+            <div class="lb-section">
+              <p class="lb-section-title">Frentes do projeto</p>
+              <div class="lb-grid">
+                <div class="lb-front">
+                  <h4>Frente 01 · Balancete Contábil</h4>
+                  <p>Recriação do balancete SAP (ZSGCTB0091) a partir da FAGLFLEXT, com saldo anterior, movimento e acumulado por conta, segmento e centro de lucro.</p>
+                  <ul>
+                    <li>Deduplicação CDC por chave contábil</li>
+                    <li>Fórmulas HSLVT, HSL05 e HSLVT+HSL05</li>
+                    <li>Visão mês a mês</li>
+                    <li>Conta report Hyperion</li>
+                  </ul>
+                </div>
+                <div class="lb-front">
+                  <h4>Frente 02 · Faturamento Fiscal</h4>
+                  <p>Pipeline de 4 passos que une base contábil, notas fiscais e impostos, entregando o relatório de volume contábil.</p>
+                  <ul>
+                    <li>1. Base contábil — BKPF + FAGLFLEXA</li>
+                    <li>2. Notas fiscais — J_1BNFDOC + LIN</li>
+                    <li>3. Contábil + NF + impostos — J_1BNFSTX</li>
+                    <li>4. Dimensões + relatório final (cliente, material, centro)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="lb-section">
+              <p class="lb-section-title">Fontes SAP</p>
+              <div class="lb-grid">
+                <div class="lb-source">
+                  <span class="lb-code">FAGLFLEXT</span>
+                  <h4>Razão contábil</h4>
+                  <p>Saldo anterior, movimento e acumulado por conta e segmento.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">BKPF</span>
+                  <h4>Documentos contábeis</h4>
+                  <p>Base para o cruzamento com notas fiscais.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">J_1BNFDOC</span>
+                  <h4>Notas fiscais</h4>
+                  <p>Chave de acesso e dados do documento fiscal.</p>
+                </div>
+                <div class="lb-source">
+                  <span class="lb-code">J_1BNFSTX</span>
+                  <h4>Impostos por NF</h4>
+                  <p>ICMS, IPI, PIS/COFINS agrupados por segmento.</p>
+                </div>
+              </div>
+            </div>
+              </template>
             </div>
           </div>
         </article>
@@ -852,15 +1135,20 @@
       <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">
         <i class="fas fa-times" aria-hidden="true"></i>
       </button>
-      <div class="lightbox-image-wrap">
-        <img class="lightbox-img" id="lightbox-img" src="" alt="" />
-      </div>
-      <div class="lightbox-footer">
-        <p class="lightbox-title" id="lightbox-title"></p>
-        <a class="lightbox-github-link" id="lightbox-github-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver no GitHub">
-          <i class="fab fa-github" aria-hidden="true"></i>
-          Ver no GitHub
-        </a>
+
+      <div class="lightbox-scroll">
+        <div class="lightbox-image-wrap">
+          <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+        </div>
+        <div class="lightbox-footer">
+          <p class="lightbox-title" id="lightbox-title"></p>
+          <a class="lightbox-github-link" id="lightbox-github-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver no GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            Ver no GitHub
+          </a>
+        </div>
+
+        <div class="lightbox-details" id="lightbox-details"></div>
       </div>
     </div>
   </div>
