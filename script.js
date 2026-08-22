@@ -675,6 +675,7 @@ function initLanguage() {
   const img        = document.getElementById('lightbox-img');
   const titleEl    = document.getElementById('lightbox-title');
   const githubLink = document.getElementById('lightbox-github-link');
+  const detailsEl  = document.getElementById('lightbox-details');
   const backdrop   = lightbox.querySelector('.lightbox-backdrop');
   const closeBtn   = document.getElementById('lightbox-close');
 
@@ -683,6 +684,17 @@ function initLanguage() {
     img.alt          = btn.dataset.title || 'Imagem do projeto';
     titleEl.textContent = btn.dataset.title || '';
     githubLink.href  = btn.dataset.github || '#';
+
+    // Detalhes extras do projeto (fontes SAP, regras de negócio, etc.)
+    detailsEl.innerHTML = '';
+    const tmpl = btn.querySelector('template.project-details');
+    if (tmpl) {
+      detailsEl.appendChild(tmpl.content.cloneNode(true));
+      detailsEl.hidden = false;
+    } else {
+      detailsEl.hidden = true;
+    }
+
     lightbox.hidden  = false;
     document.body.style.overflow = 'hidden';
     closeBtn.focus();
@@ -692,6 +704,7 @@ function initLanguage() {
     lightbox.hidden  = true;
     document.body.style.overflow = '';
     img.src = '';
+    detailsEl.innerHTML = '';
   }
 
   // Card inteiro como gatilho — ignora cliques no link do GitHub
